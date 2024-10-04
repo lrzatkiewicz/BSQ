@@ -68,24 +68,19 @@ int	is_map_valid(int fd, MapInfo *map_info, char ***map_arr)
 			if (!validate_map_character(c, map_info))
 			{
 				print_error("Error: Invalid character in the map.");
-				free_map_arr(*map_arr, row);
+				free_map_arr(*map_arr, row + 1);
 				return (0);
 			}
 			if (process_map_character(c, map_info, &curr_row_len, &has_valid_box))
 			{
 				if (!validate_and_store_row(map_info, map_arr, &row, NULL, col, 0))
 				{
-					free_map_arr(*map_arr, row);
+					free_map_arr(*map_arr, row + 1);
 					return (0);
 				}
 				curr_row_len = 0;
 				col = 0;
 				row_count++;
-			}
-			else if (!process_map_character(c, map_info, &curr_row_len, &has_valid_box))
-			{
-				free_map_arr(*map_arr, map_info->n_rows);
-				return (0);
 			}
 			else
 			{

@@ -1,6 +1,7 @@
 #include "project.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 int	process_map_character(char c, MapInfo *map_info,
 							int *curr_row_len, int *has_valid_box)
