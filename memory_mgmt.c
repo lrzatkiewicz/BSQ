@@ -23,9 +23,11 @@ void	free_map_arr(char **map_arr, int rows_allocated)
 	{
 		if (map_arr[i] != NULL)
 			free(map_arr[i]);
+			map_arr[i] = NULL;
 		++i;
 	}
 	free(map_arr);
+	map_arr = NULL;
 }
 
 // Function to allocate memory for a single int row
@@ -52,9 +54,11 @@ void	free_int_map_arr(int **int_map_arr, int rows_allocated)
 	{
 		if (int_map_arr[i] != NULL)
 			free(int_map_arr[i]);
+		int_map_arr[i] = NULL;
 		++i;
 	}
 	free(int_map_arr);
+	int_map_arr = NULL;
 }
 
 // Function to allocate memory for a 2D int array
